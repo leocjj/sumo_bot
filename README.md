@@ -1,57 +1,68 @@
-# PYTHON SUMO BOT - Using Pygame
+# Python Sumo Bot - Using Pygame
 
 This is a sumo bot game using Pygame. The game is played by two players. The objective of the game is to push the opponent out of the ring. The player who pushes the opponent out of the ring wins the round.
 
-Each player should write a code to move its bot in the ring. The codes should be written in the files player1.py and player2.py using the function move_bot(...).
+Each player should write a code to move their bots in the ring. The codes should be written in the files player1.py and player2.py using the function move_bot(...).
 
 
-## 1. Python installation
+## Installation
 
-If you already have Python installed in your computer, you can skip this step.
+### 1. Installing Python
+
+If you already have Python installed on your computer, you can skip this step.
 
 ### 1.1 Windows
 
-If you are using Windows, you can install Python from [here](https://www.python.org/downloads/) and make sure you select the option to add python to the path during the installation.
+If you are using Windows, you can install Python from [here](https://www.python.org/downloads/), and make sure you select the option to add Python to the path during the installation.
 
-You can also install python using [miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html) (Recommended). In this case you will need to use the new installed Anaconda Powershell Prompt instead of the Windows command prompt or Windows Powershell.
+You can also install Python using [miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html) (Recommended). In this case, you will need to use the newly installed Anaconda Powershell Prompt instead of the Windows command prompt or Windows Powershell.
 
-### 1.2 Linux and Mac
-If you are using Linux or Mac, Python is already installed in your computer. [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html) can be installed too (Recommended). In the next steps, you will need to use Terminal.
+### 1.2 Linux or Mac
+If you are using Linux or Mac, Python is already installed on your computer. [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html) can be installed too (Recommended). In the next steps, you will need to use Terminal.
 
-## 2. Creating a Python virtual environment (Optional)
+### 2. Creating a Python virtual environment (Optional)
 Creating a virtual environment is optional but recommended. Open Anaconda Powershell Prompt (Windows) or Terminal (Linux and Mac) and type the following commands.
 
 ```bash
-conda create -n sumo_bot python=3.10
+conda create -n sumo_bot python=3.10 -y
 conda activate sumo_bot
 ```
 
-## 3. Pygame installation
+### 3. Pygame installation
 
-Asumming you have Python installed in your computer, install Pygame using pip. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Pygame.
+Once you have Python installed on your computer, install Pygame using pip. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Pygame.
 
 ```bash
-pip install pygame
+pip install pygame==2.5.2
 git clone https://github.com/leocjj/sumo_bot.git
 cd sumo_bot
 ```
 
 ## Usage
+To run the game use the following command inside the sumo_bot directory:
 
-Each player should put its code in the corresponding file: player1.py or player2.py. The codes should be written in the function move_bot() and should return two values:
- - First value with the movement:1 forward, 0 to stop, and -1 for backward.
- - Second value with the rotation: 1 to rotate counterclockwise, 0 to stop, and -1 to rotate clockwise.
+```bash
+python main.py
+```
+
+Each player should put its own code in the corresponding file: player1.py or player2.py.
+The codes should be written in the function move_bot().
+
+This function will receive each frame, the coordinates (x, y), and the actual (positive) rotation angle (rot) of its own bot
+and the opponent bot (x_opp, y_opp, rot_opp).
+
+The angles are zero in the horizontal axis to the left, positive if it goes counterclockwise from zero or
+negative if it goes clockwise from zero (e.g. 270° and -90° are the same rotation angle).
+
+At the end, it should return two values (a tuple of integers):
+ - The first value is for the next movement: 1 to move forward, 0 to stop, and -1 to move backward.
+ - The second value is for the next rotation: 1 to rotate counterclockwise, 0 to stop, and -1 to rotate clockwise.
 ```python
 def move_bot(x: int, y: int, rot: int, x_opp: int, y_opp: int, rot_opp: int) -> tuple[int, int]:
     # Write your code here
 
     # Return the movement and rotation, for example: rotate counterclockwise all the time.
     return 0, 1
-```
-Then, run the game using the following command:
-
-```python
-python main.py
 ```
 
 ## Debugging
@@ -61,23 +72,22 @@ Change this variable in the file main.py to move the bots automatically, semi-au
 # 0: Automatic mode for both bots. No keyboard inputs.
 DEBUG_MODE = 0
 
-# 1: Automatic mode for player 1 only. Player 2 can be moved with the keyboard.
+# 1: Automatic mode for player 1 bot only. The player 2 can be moved with the keyboard.
 DEBUG_MODE = 1
 
-# 2: Automatic mode for player 2 only. Player 1 can be moved with the keyboard.
+# 2: Automatic mode for player 2 bot only. The player 1 can be moved with the keyboard.
 DEBUG_MODE = 2
 
-# 3: Automatic mode for both player players and also both can be moved with the keyboard.
+# 3: Automatic mode for both player bots and both players can use the keyboard too.
 DEBUG_MODE = 3
 
 # 4: Manual mode for both player players with the keyboard.
 DEBUG_MODE = 4
-
 ```
 
-
-The players can use the keys: W, A, S, D (player 1) and Up, Down, Left, Right (player 2).
-
+The players can use the following keys to move:
+* Player 1: W (forward), A (rotate CCW), S (backward), D(rotate CW)
+* Player 2: Up (forward), Left (rotate CCW), Down (backward), Right(rotate CW)
 
 ## Game Rules
 * The game is played by two players.
@@ -106,8 +116,7 @@ Game framework:
 [leocjj](https://github.com/leocjj)
 
 ## Project Status
-* Alpha version Completed
-* Beta version In Progress
+* Beta version
 
 ## To Do
 * Add more features: obstacles, different ring shapes, etc.
@@ -116,4 +125,4 @@ Game framework:
 * Add more examples and tests.
 
 ## Change Log
-* 2023-11-16: Alpha version completed
+* 2023-11-16: Beta version completed
