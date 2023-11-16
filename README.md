@@ -1,8 +1,11 @@
 # Python Sumo Bot - Using Pygame
 
-This is a sumo bot game using Pygame. The game is played by two players. The objective of the game is to push the opponent out of the ring. The player who pushes the opponent out of the ring wins the round.
+This is a sumo bot game using Pygame. The game is played by two players.
+The objective of the game is to push the opponent out of the ring.
+The player who pushes the opponent out of the ring wins the round.
 
-Each player should write a code to move their bots in the ring. The codes should be written in the files player1.py and player2.py using the function move_bot(...).
+Each player should write a code to move their bots in the ring.
+The codes should be written in the files player1.py and player2.py using the function move_bot(...).
 
 
 ## Installation
@@ -13,15 +16,22 @@ If you already have Python installed on your computer, you can skip this step.
 
 ### 1.1 Windows
 
-If you are using Windows, you can install Python from [here](https://www.python.org/downloads/), and make sure you select the option to add Python to the path during the installation.
+If you are using Windows, you can install Python from [here](https://www.python.org/downloads/),
+and make sure you select the option to add Python to the path during the installation.
+In the next steps, you will need to use Windows Powershell.
 
-You can also install Python using [miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html) (Recommended). In this case, you will need to use the newly installed Anaconda Powershell Prompt instead of the Windows command prompt or Windows Powershell.
+An alternative option to install Python is by installing
+[miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html) (Recommended).
+In this case, you will need to use the newly installed Anaconda Powershell Prompt instead of the Windows Powershell.
 
 ### 1.2 Linux or Mac
-If you are using Linux or Mac, Python is already installed on your computer. [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html) can be installed too (Recommended). In the next steps, you will need to use Terminal.
+If you are using Linux or Mac, Python is already installed on your computer.
+[Miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html) can be installed too (Recommended).
+In the next steps, you will need to use Terminal (Linux) or iTerm (Mac).
 
 ### 2. Creating a Python virtual environment (Optional)
-Creating a virtual environment is optional but recommended. Open Anaconda Powershell Prompt (Windows) or Terminal (Linux and Mac) and type the following commands.
+Creating a virtual environment is optional but recommended.
+Open Anaconda Powershell Prompt (Windows), Terminal (Linux), or iTem (Mac) and type the following commands.
 
 ```bash
 conda create -n sumo_bot python=3.10 -y
@@ -30,7 +40,7 @@ conda activate sumo_bot
 
 ### 3. Pygame installation
 
-Once you have Python installed on your computer, install Pygame using pip. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Pygame.
+Once you have Python installed on your computer, install Pygame using pip (a package manager [pip](https://pip.pypa.io/en/stable/) to install Pygame).
 
 ```bash
 pip install pygame==2.5.2
